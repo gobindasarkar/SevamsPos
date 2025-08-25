@@ -1,6 +1,8 @@
 import ItemsList from "@/components/ItemsList";
 import OrderDetails from "@/components/OrderDetails";
+import OrderSummaryMobile from "@/components/OrderSummaryMobile";
 import SearchFilter from "@/components/SearchFilter";
+
 
 export default function Home() {
   return (
@@ -11,10 +13,11 @@ export default function Home() {
             <SearchFilter />
             <ItemsList />
           </div>
-          <div>
+          <div className="hidden sm:block">
             <OrderDetails />
           </div>
         </div>
+        <OrderSummaryMobile />
       </div>
     </>
   );

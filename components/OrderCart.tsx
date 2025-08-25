@@ -1,3 +1,4 @@
+"use client";
 import { FaPencil, FaRegTrashCan } from "react-icons/fa6";
 import Quantity from "./Quantity";
 import Image, { StaticImageData } from "next/image";
@@ -5,6 +6,7 @@ import Image, { StaticImageData } from "next/image";
 import itemsimage1 from "@/public/items-image-1.jpg";
 import itemsimage2 from "@/public/items-image-2.jpg";
 import itemsimage3 from "@/public/items-image-3.jpg";
+import { useState } from "react";
 
 type Item = {
     id: number;
@@ -66,11 +68,17 @@ const items: Item[] = [
     },
 ];
 export default function OrderCart() {
+    const [activeItemId, setActiveItemId] = useState<number | null>(null);
+
+    const handleClick = (id: number) => {
+        setActiveItemId((prev) => (prev === id ? null : id)); // toggle only that item
+    };
+
     return (
         <div className="mt-3">
             <ul className="h-52 overflow-y-auto">
                 {items.map((curElm) => {
-                    const {id,image,title,price} = curElm;
+                    const { id, image, title, price } = curElm;
                     return (
                         <li
                             key={id}
@@ -87,6 +95,14 @@ export default function OrderCart() {
                                 />
                                 <div>
                                     <h3 className="font-semibold text-sm sm:text-base capitalize text-tcolor mb-0">{title}</h3>
+                                    <div className="relative">
+                                        <button onClick={() => handleClick(id)} className="text-sm text-red-600 cursor-pointer">View customisable</button>
+                                        <ul className={`absolute top-full left-0 bg-white rounded-md shadow-2xl p-2 text-xs w-44 ${activeItemId === id ? "block" : "hidden"
+                                            }`}>
+                                            <li>Extra Chicken ₹ 70.00</li>
+                                            <li>Extra Onion ₹ 20.00</li>
+                                        </ul>
+                                    </div>
                                     <h4 className="text-black text-base sm:text-lg font-semibold mb-0">₹ {price.toFixed(2)}</h4>
                                     <button className="text-blue-500 hover:text-blue-700 inline-block p-0 m-0 shadow-none outline-0 cursor-pointer">
                                         <FaPencil />
