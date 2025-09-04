@@ -30,7 +30,7 @@ export default function BannerSlider() {
     return (
         <Slider {...settings}>
             {slides.map((slide) => (
-                <div key={slide.id} className="relative w-[100%] h-[200px]">
+                <div key={slide.id} className="relative w-full h-[200px]">
                     <Image
                         src={slide.src}
                         alt={slide.alt}

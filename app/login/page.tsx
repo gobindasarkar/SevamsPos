@@ -5,8 +5,8 @@ import BannderSlider from "@/components/BannderSlider";
 export default function page() {
   return (
     <div className="grid place-items-center min-h-screen p-4 bg-color1">
-      <div className="max-w-xl w-full space-y-6">
-        <div className="mb-5 w-full max-w-md mx-auto overflow-hidden relative">
+      <div className="max-w-xl w-full space-y-6 overflow-hidden">
+        <div className="mb-5 w-full max-w-md mx-auto">
           <BannderSlider />
         </div>
         <div className="rounded-lg border text-bcolor shadow-sm p-6 w-full max-w-md mx-auto bg-[#0f131a] border-bordercolor shadow-blue ">
