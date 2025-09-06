@@ -12,6 +12,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import Quantity from "./Quantity";
 interface SingleItemProps {
     image: StaticImageData;
     title: string;
@@ -131,11 +132,15 @@ export default function SingleItem({ image, title, price, category, Vegetarian }
                                         ))}
                                     </ul>
                                 </div>
+                                <div className="space-y-2 mt-3">
+                                    <input className="w-full h-12 rounded-xl border border-bordercolor2 px-2 ring-0 focus:ring-0 outline-0 text-sm font-normal" type="text" placeholder="Add a cooking request (optional)" id="cookingrequest" />
+                                    <div className="flex items-center justify-between gap-x-2 w-full">
+                                        <Quantity />
+                                        <button className="inline-block px-4 py-2 md:px-3 lg:px-5 lg:py-2.5 rounded-lg bg-pcolor text-sm lg:text-base capitalize text-white cursor-pointer outline-0 transition-all hover:bg-hcolor">+ ₹ 80.00</button>
+                                    </div>
+                                </div>
                             </DialogDescription>
-                            <div className="flex items-center justify-between gap-x-2">
-                                <input className="flex-1 h-full rounded-xl border border-bordercolor2 px-2 ring-0 focus:ring-0 outline-0 text-sm font-normal" type="text" placeholder="Add a cooking request (optional)" id="cookingrequest" />
-                                <button className="inline-block px-4 py-2 md:px-3 lg:px-5 lg:py-2.5 rounded-lg bg-pcolor text-sm lg:text-base capitalize text-white cursor-pointer outline-0 transition-all hover:bg-hcolor">+ ₹ 80.00</button>
-                            </div>
+
                         </DialogContent>
                     </Dialog>
                 </div>
